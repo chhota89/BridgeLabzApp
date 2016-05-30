@@ -15,6 +15,9 @@
     <string name="option_menu3">Option Menu 3</string>
     <string name="title_activity_display_data">DisplayData</string>
     <string name="title_activity_music_player">MusicPlayer</string>
+    <string name="title_activity_video">Video Player</string>
+    <string name="title_activity_vedio">Vedio Player</string>
+    <string name="title_activity_camera">CameraActivity</string>
 
 
 </resources>

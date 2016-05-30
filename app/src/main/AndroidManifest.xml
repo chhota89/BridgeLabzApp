@@ -4,6 +4,12 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <receiver android:name=".reciver.AlaramBroadcastReciver" />
 
@@ -41,7 +47,17 @@
         <activity
             android:name=".activity.MusicPlayer"
             android:label="@string/title_activity_music_player"
-            android:theme="@style/MyMaterialTheme"></activity>
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".activity.VedioActivity"
+            android:label="@string/title_activity_vedio"
+            android:theme="@style/MyMaterialTheme" />
+        <activity android:name=".activity.FragmentDemo" />
+        <activity
+            android:name=".activity.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/MyMaterialTheme" />
+        <activity android:name=".activity.ORM_Activity"></activity>
     </application>
 
 </manifest>

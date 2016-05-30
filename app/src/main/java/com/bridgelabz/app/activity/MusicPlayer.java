@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
 
@@ -23,6 +22,8 @@ public class MusicPlayer extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mSeekBar=(SeekBar)findViewById(R.id.seekBar);
+
+        //Add Seekbar Listener
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -57,12 +58,11 @@ public class MusicPlayer extends AppCompatActivity {
     };
 
     public void seekUpdation() {
-
         mSeekBar.setProgress(mPlayer2.getCurrentPosition());
         seekHandler.postDelayed(run, 1000);
     }
 
-
+    //This method is trigger when uplay button is pressed
     public void playAudio(View view){
         if(mPlayer2!=null)
         {
@@ -72,6 +72,7 @@ public class MusicPlayer extends AppCompatActivity {
         playSound();
     }
 
+    //Play audio
     public void playSound(){
         mPlayer2= MediaPlayer.create(this, R.raw.sample_audio);
         mPlayer2.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -84,6 +85,7 @@ public class MusicPlayer extends AppCompatActivity {
         mPlayer2.start();
     }
 
+    //Pause audio when user press pause button
     public void puaseAudio(View view){
         if(mPlayer2!=null) {
             mPlayer2.pause();
@@ -91,12 +93,14 @@ public class MusicPlayer extends AppCompatActivity {
         }
     }
 
+    //Resume audio when user press resume button
     public void resumeAudio(View view){
         if(mPlayer2!=null)
             mPlayer2.seekTo(media_length);
         mPlayer2.start();
     }
 
+    //stop audio when user press stop button
     public void stopAudio(View view){
         if(mPlayer2!=null)
             mPlayer2.stop();

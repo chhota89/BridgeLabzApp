@@ -22,6 +22,7 @@ public class FormActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Submit Button send result to
                 TextView message=(TextView)findViewById(R.id.message);
                 Intent intent=new Intent();
                 intent.putExtra("MESSAGE",message.getText().toString());

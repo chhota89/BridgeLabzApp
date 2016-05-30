@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.activity.DisplayData;
+import com.bridgelabz.app.activity.ORM_Activity;
 import com.bridgelabz.app.database.DBHelper;
 import com.bridgelabz.app.model.User;
 
@@ -36,12 +37,20 @@ public class SqliteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.sqlite,container,false);
         dbHelper=new DBHelper(view.getContext());
-        final Button display,update,insert,delete;
+        final Button display,update,insert,delete,orm;
         display=(Button)view.findViewById(R.id.display);
         update=(Button)view.findViewById(R.id.updateValue);
         delete=(Button)view.findViewById(R.id.deleteValue);
         insert=(Button)view.findViewById(R.id.insertValue);
+        orm=(Button)view.findViewById(R.id.orm);
 
+        //open ORM Activity.
+        orm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(view.getContext(), ORM_Activity.class));
+            }
+        });
         //Create Table
         display.setOnClickListener(new View.OnClickListener() {
             @Override

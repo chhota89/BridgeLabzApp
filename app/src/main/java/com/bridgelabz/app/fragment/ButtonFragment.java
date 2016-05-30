@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,8 +16,10 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.bridgelabz.app.R;
-import com.bridgelabz.app.activity.MainActivity;
+import com.bridgelabz.app.activity.CameraActivity;
+import com.bridgelabz.app.activity.FragmentDemo;
 import com.bridgelabz.app.activity.MusicPlayer;
+import com.bridgelabz.app.activity.VedioActivity;
 import com.bridgelabz.app.reciver.AlaramBroadcastReciver;
 
 /**
@@ -46,6 +47,7 @@ public class ButtonFragment extends Fragment {
                     int time = 0;
                     time = Integer.parseInt(textView.getText().toString());
                     Intent intent = new Intent(v.getContext(), AlaramBroadcastReciver.class);
+                    //Set Panding intent
                     PendingIntent pandingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 234324243, intent, 0);
                     AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Activity.ALARM_SERVICE);
                     alarmManager.set(AlarmManager.ELAPSED_REALTIME, System.currentTimeMillis() + (time * 1000), pandingIntent);
@@ -97,6 +99,36 @@ public class ButtonFragment extends Fragment {
                 startActivity(new Intent(view.getContext(), MusicPlayer.class));
             }
         });
+
+
+        // Vedio Player
+        Button startVedio=(Button)view.findViewById(R.id.startVedio);
+        startVedio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(view.getContext(), VedioActivity.class));
+            }
+        });
+
+        //Fragment Demo
+        Button fragmentActivity=(Button)view.findViewById(R.id.fragmentActivity);
+        fragmentActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(view.getContext(), FragmentDemo.class));
+            }
+        });
+
+
+        //Open Camera Activity
+        Button camera=(Button)view.findViewById(R.id.camera);
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(view.getContext(), CameraActivity.class));
+            }
+        });
+
         return view;
     }
 

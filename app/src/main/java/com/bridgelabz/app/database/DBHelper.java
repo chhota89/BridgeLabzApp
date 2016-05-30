@@ -54,6 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //Add new User information
     public void addContact(User user) {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, user.getName()); // Contact Name
@@ -65,6 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
+    //return User information.
     public Cursor getData(){
         String selectQuery = "SELECT  * FROM " + TABLE_USER;
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -79,10 +81,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    //delete users whose name match with given Phone number.
     public boolean deleteUser(String phoneNumber){
         return db.delete(TABLE_USER,KEY_PH_NO+"="+phoneNumber,null)>0;
     }
 
+    //Update User information based on user mobile number
     public boolean update(User user){
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, user.getName()); // Contact Name
