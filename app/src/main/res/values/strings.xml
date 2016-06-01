@@ -13,6 +13,7 @@
     <string name="option_menu1">Option Menu 1</string>
     <string name="option_menu2">Option Menu 2</string>
     <string name="option_menu3">Option Menu 3</string>
+
     <string name="title_activity_display_data">Display Data</string>
     <string name="title_activity_music_player">Music Player</string>
     <string name="title_activity_video">Video Player</string>

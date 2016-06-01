@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+
 import android.view.Gravity;
 import android.widget.TableLayout;
 import android.widget.TableRow;

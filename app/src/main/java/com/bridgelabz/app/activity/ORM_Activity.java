@@ -26,8 +26,6 @@ import java.util.List;
 
 public class ORM_Activity extends OrmLiteBaseActivity<ORM_Helper> {
 
-    Dao<ORMUser, Integer> userDao;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
