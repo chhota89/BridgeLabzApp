@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">BridgeLabz App</string>
+
+    <string name="error_enter_number">Please Enter number only.</string>
+    <string name="alaram_set">Your Alaram is set.</string>
+
+    <string name="no_intent">App is not there in your phone.</string>
+
+    <string name="save_data_sqlite">Data save to sqlite.</string>
+    <string name="no_mobile_number_found">No mobile number found.</string>
+    <string name="record_deleted">Record deleted.</string>
+
+    <string name="option_menu1">Option Menu 1</string>
+    <string name="option_menu2">Option Menu 2</string>
+    <string name="option_menu3">Option Menu 3</string>
+    <string name="title_activity_display_data">Display Data</string>
+    <string name="title_activity_music_player">Music Player</string>
+    <string name="title_activity_video">Video Player</string>
+    <string name="title_activity_vedio">Vedio Player</string>
+    <string name="title_activity_camera">CameraActivity</string>
+
+
+</resources>
