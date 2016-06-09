@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.activity.FormActivity;
+import com.bridgelabz.app.activity.HeterogenousRecycleView;
 
 
 /**
@@ -47,6 +48,15 @@ public class IntentExample extends Fragment {
                 }
             }
         });
+
+        Button recycleView=(Button)view.findViewById(R.id.recycleView);
+        recycleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), HeterogenousRecycleView.class));
+            }
+        });
+
         return view;
     }
 

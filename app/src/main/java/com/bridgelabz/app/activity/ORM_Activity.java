@@ -3,7 +3,6 @@ package com.bridgelabz.app.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ORM_Activity extends OrmLiteBaseActivity<ORM_Helper> {
+
+    private Dao<ORMUser, Integer> userDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -254,6 +255,4 @@ public class ORM_Activity extends OrmLiteBaseActivity<ORM_Helper> {
         });
 
     }
-
-
 }

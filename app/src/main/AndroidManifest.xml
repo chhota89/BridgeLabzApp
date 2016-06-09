@@ -57,7 +57,11 @@
             android:name=".activity.CameraActivity"
             android:label="@string/title_activity_camera"
             android:theme="@style/MyMaterialTheme" />
-        <activity android:name=".activity.ORM_Activity"></activity>
+        <activity android:name=".activity.ORM_Activity" />
+        <activity
+            android:name=".activity.HeterogenousRecycleView"
+            android:label="@string/title_activity_heterogenous_recycle_view"
+            android:theme="@style/MyMaterialTheme"></activity>
     </application>
 
 </manifest>

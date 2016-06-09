@@ -19,6 +19,7 @@
     <string name="title_activity_video">Video Player</string>
     <string name="title_activity_vedio">Vedio Player</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_heterogenous_recycle_view">HeterogenousRecycleView</string>
 
 
 </resources>
