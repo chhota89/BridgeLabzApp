@@ -20,6 +20,15 @@
     <string name="title_activity_vedio">Vedio Player</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_heterogenous_recycle_view">HeterogenousRecycleView</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_material_design">MaterialDesign</string>
+    <string name="title_activity_activity_transition">ActivityTransition</string>
+    <string name="title_activity_retrofit">Retrofit</string>
 
 
 </resources>

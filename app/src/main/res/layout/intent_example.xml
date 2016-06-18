@@ -17,9 +17,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:text="Activity For result"
-        android:elevation="2dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/textColorPrimary"
+        android:theme="@style/AppTheme.Button"
         android:id="@+id/activityResult"/>
 
     <Button
@@ -29,9 +27,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:text="Explicit Intent"
-        android:elevation="2dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/textColorPrimary"
+        android:theme="@style/AppTheme.Button"
         android:id="@+id/explicitIntent"/>
 
     <Button
@@ -42,6 +38,36 @@
         android:layout_marginRight="10dp"
         android:text="Hetrogenous reclycleview"
         android:id="@+id/recycleView"
+        android:theme="@style/AppTheme.Button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Material Look design"
+        android:id="@+id/materialLook"
+        android:theme="@style/AppTheme.Button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="constrainChecker"
+        android:id="@+id/constrainChecker"
+        android:theme="@style/AppTheme.Button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Retrofit"
+        android:id="@+id/retrofit"
         android:theme="@style/AppTheme.Button" />
 
 </LinearLayout>

@@ -47,10 +47,10 @@ public class ButtonFragment extends Fragment {
                     int time = 0;
                     time = Integer.parseInt(textView.getText().toString());
                     Intent intent = new Intent(v.getContext(), AlaramBroadcastReciver.class);
-                    //Set Panding intent
-                    PendingIntent pandingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 234324243, intent, 0);
+                    //Set Pending intent
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 234324243, intent, 0);
                     AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Activity.ALARM_SERVICE);
-                    alarmManager.set(AlarmManager.ELAPSED_REALTIME, System.currentTimeMillis() + (time * 1000), pandingIntent);
+                    alarmManager.set(AlarmManager.ELAPSED_REALTIME, System.currentTimeMillis() + (time * 1000), pendingIntent);
                     Toast.makeText(view.getContext(), getString(R.string.alaram_set), Toast.LENGTH_LONG).show();
                 } catch (NumberFormatException exception) {
                     Toast.makeText(view.getContext(), getString(R.string.error_enter_number), Toast.LENGTH_LONG).show();

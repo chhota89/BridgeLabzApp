@@ -4,6 +4,9 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:id="@+id/imageView"
         android:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"

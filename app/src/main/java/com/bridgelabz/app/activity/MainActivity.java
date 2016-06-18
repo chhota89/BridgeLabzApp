@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.fragment.ButtonFragment;
+import com.bridgelabz.app.fragment.FragmentDrawer;
 import com.bridgelabz.app.fragment.IntentExample;
 import com.bridgelabz.app.fragment.SqliteFragment;
 import com.bridgelabz.app.fragment.Widgets;
@@ -34,11 +36,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        FragmentDrawer mDrawerFragment = (FragmentDrawer)
+                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+
         ViewPager viewPager=(ViewPager)findViewById(R.id.viewpager);
         setUpViewPager(viewPager);
 
         TabLayout tabLayout=(TabLayout)findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        mDrawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer), toolbar);
     }
 
 
@@ -72,6 +81,25 @@ public class MainActivity extends AppCompatActivity {
         viewPageAdapter.addFragment(new Widgets(),"Widget");
         viewPageAdapter.addFragment(new SqliteFragment(),"sqlite");
         viewPager.setAdapter(viewPageAdapter);
+    }
+
+    public void onDrawerSlide(float slideOffset) {
+        toggleTranslateFAB(slideOffset);
+    }
+
+
+    public void onDrawerItemClicked(int index) {
+        Toast.makeText(MainActivity.this,"Position " +index,Toast.LENGTH_LONG).show();
+    }
+
+
+    private void toggleTranslateFAB(float slideOffset) {
+        /*if (mFABMenu != null) {
+            if (mFABMenu.isOpen()) {
+                mFABMenu.close(true);
+            }
+            mFAB.setTranslationX(slideOffset * 200);
+        }*/
     }
 
     class  ViewPageAdapter extends FragmentPagerAdapter{

@@ -11,8 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bridgelabz.app.R;
+import com.bridgelabz.app.activity.ConstraintExample;
 import com.bridgelabz.app.activity.FormActivity;
 import com.bridgelabz.app.activity.HeterogenousRecycleView;
+import com.bridgelabz.app.activity.MaterialDesign;
+import com.bridgelabz.app.activity.Retrofit;
 
 
 /**
@@ -42,13 +45,15 @@ public class IntentExample extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-                    getActivity().startActivity(new Intent("com.bridgelabz.recycleviewdemo.activity.ActivityTransition"));
+                    getActivity().startActivity(new Intent("com.bridgelabz.recycleviewdemo.activity.ActivityTransitionDemo"));
                 }catch (Exception exception){
                     Toast.makeText(view.getContext(),getString(R.string.no_intent),Toast.LENGTH_LONG).show();
                 }
             }
         });
 
+
+        //Open heterogeneous recycle view
         Button recycleView=(Button)view.findViewById(R.id.recycleView);
         recycleView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +61,35 @@ public class IntentExample extends Fragment {
                 startActivity(new Intent(getContext(), HeterogenousRecycleView.class));
             }
         });
+
+        //Open Material design page
+        Button materialLook=(Button)view.findViewById(R.id.materialLook);
+        materialLook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), MaterialDesign.class));
+            }
+        });
+
+        //Constraints layout example
+        Button constrainChecker=(Button)view.findViewById(R.id.constrainChecker);
+        constrainChecker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ConstraintExample.class));
+            }
+        });
+
+        //Retrofit example
+        Button retrofit=(Button)view.findViewById(R.id.retrofit);
+        retrofit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Retrofit.class));
+            }
+        });
+
+
 
         return view;
     }

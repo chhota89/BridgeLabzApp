@@ -16,7 +16,6 @@ public class WriteConfigFile extends OrmLiteConfigUtil {
 
     public static void main(String[] args) throws SQLException, IOException {
         writeConfigFile(new File("ormlite_config.txt"),classes);
-
-
     }
+
 }
