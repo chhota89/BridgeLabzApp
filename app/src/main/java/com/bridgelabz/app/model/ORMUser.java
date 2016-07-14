@@ -3,8 +3,6 @@ package com.bridgelabz.app.model;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import java.util.Date;
-
 /**
  * Created by bridgelabz5 on 30/5/16.
  */

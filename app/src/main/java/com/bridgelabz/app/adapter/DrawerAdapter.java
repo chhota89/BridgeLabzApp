@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.model.UserInfo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

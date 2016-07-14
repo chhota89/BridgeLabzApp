@@ -10,7 +10,7 @@
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false" />
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -81,6 +81,9 @@
             android:name=".activity.Retrofit"
             android:label="@string/title_activity_retrofit"
             android:theme="@style/MyMaterialTheme"></activity>
+
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+
     </application>
 
 </manifest>

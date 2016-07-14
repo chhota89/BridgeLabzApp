@@ -5,22 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
-import com.bridgelabz.app.retrofit.ApiClient;
-import com.bridgelabz.app.retrofit.ListInterface;
-import com.bridgelabz.app.retrofit.LoginInterface;
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.adapter.DrawerAdapter;
-import com.bridgelabz.app.model.LoginModel;
-import com.bridgelabz.app.model.LoginResponse;
 import com.bridgelabz.app.model.UserInfoList;
+import com.bridgelabz.app.retrofit.ApiClient;
+import com.bridgelabz.app.retrofit.ListInterface;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import rx.Observable;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

@@ -29,6 +29,7 @@
     <string name="title_activity_material_design">MaterialDesign</string>
     <string name="title_activity_activity_transition">ActivityTransition</string>
     <string name="title_activity_retrofit">Retrofit</string>
+    <string name="hello">hello</string>
 
 
 </resources>

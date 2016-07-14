@@ -3,7 +3,6 @@ package com.bridgelabz.app.reciver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.Toast;
 
