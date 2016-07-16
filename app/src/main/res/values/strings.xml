@@ -31,5 +31,20 @@
     <string name="title_activity_retrofit">Retrofit</string>
     <string name="hello">hello</string>
 
+    <string name="nav_item_home">Home</string>
+    <string name="nav_item_friend">Friend</string>
+    <string name="nave_item_notifications">Messages</string>
 
+    <!--navigation drawer item labels -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_friend</item>
+        <item>@string/nave_item_notifications</item>
+    </string-array>
+
+    <string name="title_messages">Messages</string>
+    <string name="title_friend">Friends</string>
+    <string name="title_home">Home</string>
+    <string name="title_activity_android_material_design">AndroidMaterialDesign</string>
+    <string name="action_search">Search</string>
 </resources>
