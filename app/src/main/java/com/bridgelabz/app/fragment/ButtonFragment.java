@@ -20,6 +20,7 @@ import com.bridgelabz.app.activity.CameraActivity;
 import com.bridgelabz.app.activity.FragmentDemo;
 import com.bridgelabz.app.activity.MusicPlayer;
 import com.bridgelabz.app.activity.VedioActivity;
+import com.bridgelabz.app.activity.VolleyFeedActivity;
 import com.bridgelabz.app.reciver.AlaramBroadcastReciver;
 
 /**
@@ -129,6 +130,14 @@ public class ButtonFragment extends Fragment {
             }
         });
 
+        //Open Camera Activity
+        Button volleyFeed=(Button)view.findViewById(R.id.volley_feed);
+        volleyFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(view.getContext(), VolleyFeedActivity.class));
+            }
+        });
         return view;
     }
 
