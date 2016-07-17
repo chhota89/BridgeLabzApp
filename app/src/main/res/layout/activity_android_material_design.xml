@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,14 +8,27 @@
     android:fitsSystemWindows="true"
     tools:context="com.bridgelabz.app.activity.AndroidMaterialDesign">
     <LinearLayout
+        
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar"/>
+        <FrameLayout
+            android:id="@+id/container_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
     </LinearLayout>
-    <include layout="@layout/content_android_material_design" />
+    <!--<include layout="@layout/content_android_material_design" />-->
+    <fragment
+        android:id="@+id/android_fragment_navigation_drawer"
+        android:layout_width="@dimen/nave_drawer_width"
+        android:layout_height="match_parent"
+        class="com.bridgelabz.app.fragment.NavigationFragmentDrawer"
+        android:gravity="start"
+        app:layout="@layout/fragment_navigation_drawer"
+        tools:layout="@layout/fragment_navigation_drawer"/>
 
-
-</android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.DrawerLayout>
