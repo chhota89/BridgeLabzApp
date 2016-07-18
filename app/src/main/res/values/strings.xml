@@ -30,6 +30,7 @@
     <string name="title_activity_activity_transition">ActivityTransition</string>
     <string name="title_activity_retrofit">Retrofit</string>
     <string name="hello">hello</string>
+    <string name="realm_activity">Realm Activity</string>
 
     <string name="nav_item_home">Home</string>
     <string name="nav_item_friend">Friend</string>
