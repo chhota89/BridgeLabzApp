@@ -15,15 +15,20 @@ import com.bridgelabz.app.R;
 import com.bridgelabz.app.database.DBHelper;
 import com.bridgelabz.app.database.ORM_Helper;
 import com.bridgelabz.app.model.ORMUser;
+import com.bridgelabz.app.model.RealmUser;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 public class DisplayData extends AppCompatActivity {
 
     private final String TAG="DisplayData";
+    private Realm myRealm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class DisplayData extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.title_activity_display_data));
         setSupportActionBar(toolbar);
+        myRealm = Realm.getInstance(DisplayData.this);
 
         String callerPage=getIntent().getStringExtra("DATABASE_TYPE");
         if (callerPage!=null && callerPage.equals("sqlite")){
@@ -39,13 +45,18 @@ public class DisplayData extends AppCompatActivity {
             Cursor cursor=dbHelper.getData();
             genrateTable(cursor);
         }
+        else if(callerPage!=null && callerPage.equals("REALM")){
+            RealmResults<RealmUser> results1 =
+                    myRealm.where(RealmUser.class).findAll();
+            displayData(results1);
+        }
         else {
             ORM_Helper helper= OpenHelperManager.getHelper(DisplayData.this,ORM_Helper.class);
             try {
                 final Dao<ORMUser,Integer> userDao=helper.getDao();
                 List<ORMUser> userList = userDao.queryForAll();
                 OpenHelperManager.releaseHelper();
-                displayORMData(userList);
+                displayData(userList);
             } catch (SQLException e) {
                 Log.e(TAG, "onCreate: Display ORM Data ",e );
             }
@@ -92,18 +103,16 @@ public class DisplayData extends AppCompatActivity {
     }
 
 
-    private void displayORMData(List<ORMUser> ormUserArrayList){
+    private void displayData(List<?> list){
         TableLayout table_layout = (TableLayout) findViewById(R.id.tableLayout1);
 
-        int rows = ormUserArrayList.size();
+        int rows = list.size();
         int cols = 1;
         // outer for loop
         for (int i = 0; i < rows; i++) {
-
             TableRow row = new TableRow(this);
             row.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.WRAP_CONTENT));
-
             // inner for loop
             for (int j = 0; j < cols; j++) {
 
@@ -116,15 +125,11 @@ public class DisplayData extends AppCompatActivity {
                 tv.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 tv.setPadding(0, 5, 0, 5);
 
-                tv.setText(ormUserArrayList.get(i).toString());
+                tv.setText(list.get(i).toString());
 
                 row.addView(tv);
-
             }
-
-
             table_layout.addView(row);
-
         }
     }
 

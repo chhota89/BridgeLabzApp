@@ -21,6 +21,7 @@ import com.bridgelabz.app.activity.ORM_Activity;
 import com.bridgelabz.app.activity.RealmActivity;
 import com.bridgelabz.app.database.DBHelper;
 import com.bridgelabz.app.model.User;
+import com.bridgelabz.app.utility.NumberUtility;
 
 /**
  * Created by bridgelabz5 on 26/5/16.
@@ -159,7 +160,10 @@ public class SqliteFragment extends Fragment {
                         age=(TextView)dialog.findViewById(R.id.age);
                         phoneNumber=(TextView)dialog.findViewById(R.id.phoneNumber);
                         try{
+                            long start=System.currentTimeMillis();
                             dbHelper.addContact(new User(name.getText().toString(),phoneNumber.getText().toString(),Integer.parseInt(age.getText().toString())));
+                            long end=System.currentTimeMillis();
+                            NumberUtility.getTime(start,end,"SQLITE Insert");
                             dialog.hide();
                             Toast.makeText(view.getContext(),getString(R.string.save_data_sqlite),Toast.LENGTH_LONG).show();
                         }catch (NumberFormatException exception){
