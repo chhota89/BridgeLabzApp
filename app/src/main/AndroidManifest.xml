@@ -86,7 +86,15 @@
         <activity
             android:name=".activity.Retrofit"
             android:label="@string/title_activity_retrofit"
-            android:theme="@style/MyMaterialTheme"></activity>
+            android:theme="@style/MyMaterialTheme"/>
+        <activity
+            android:name=".activity.AndroidMaterialDesign"
+            android:label="@string/title_activity_android_material_design"
+            android:theme="@style/MyMaterialTheme"/>
+        <activity
+            android:name=".activity.VolleyFeedActivity"
+            android:label="@string/title_activity_android_material_design"
+            android:theme="@style/MyMaterialTheme"/>
 
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 

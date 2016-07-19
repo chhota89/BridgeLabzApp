@@ -26,7 +26,7 @@
         android:id="@+id/android_fragment_navigation_drawer"
         android:layout_width="@dimen/nave_drawer_width"
         android:layout_height="match_parent"
-        class="com.bridgelabz.app.fragment.NavigationFragmentDrawer"
+        android:name="com.bridgelabz.app.fragment.NavigationFragmentDrawer"
         android:gravity="start"
         app:layout="@layout/fragment_navigation_drawer"
         tools:layout="@layout/fragment_navigation_drawer"/>
