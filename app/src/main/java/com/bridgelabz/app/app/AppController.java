@@ -8,9 +8,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.bridgelabz.app.volley.LruBitmapCache;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.jakewharton.picasso.OkHttp3Downloader;
+import com.squareup.picasso.Picasso;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Created by eshvar289 on 17/7/16.
@@ -24,11 +29,14 @@ public class AppController extends Application {
     LruBitmapCache mLruBitmapCache;
 
     private static AppController mInstance;
+    private static Picasso picasso;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+
+        Fresco.initialize(this);
 
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
                 .name(Realm.DEFAULT_REALM_NAME)
@@ -36,6 +44,19 @@ public class AppController extends Application {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+        picasso = new Picasso.Builder(this)
+                .downloader(new OkHttp3Downloader(client))
+                .build();
+        picasso.setLoggingEnabled(true);
+        picasso.setIndicatorsEnabled(true);
+    }
+
+    public static synchronized Picasso getPicasso(){
+            return picasso;
     }
 
     public static synchronized AppController getInstance() {

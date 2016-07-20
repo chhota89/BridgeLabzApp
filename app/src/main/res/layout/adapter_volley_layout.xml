@@ -3,13 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:id="@+id/imageView"
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/networkImageView"
         android:adjustViewBounds="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter" >
+    </com.android.volley.toolbox.NetworkImageView>
 
 </LinearLayout>

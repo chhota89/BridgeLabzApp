@@ -242,7 +242,10 @@ public class ORM_Activity extends OrmLiteBaseActivity<ORM_Helper> {
                         deleteValue.setEnabled(false);
                         List<ORMUser> quaryByNumber = new ArrayList<>();
                         try {
+                            long start=System.nanoTime();
                             quaryByNumber = userDao.queryForEq("phoneNumber", phoneNumber.getText().toString());
+                            long end=System.nanoTime();
+                            NumberUtility.getTime(start,end,"ORM Retrive");
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }

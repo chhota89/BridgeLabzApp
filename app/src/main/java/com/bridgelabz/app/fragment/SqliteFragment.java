@@ -216,7 +216,10 @@ public class SqliteFragment extends Fragment {
                         name.setFocusable(false);
                         age.setFocusable(false);
                         insertdetails.setEnabled(false);
+                        long start=System.nanoTime();
                         Cursor cursor=dbHelper.getUserByMobileNumber(""+phoneNumber.getText().toString());
+                        long end=System.nanoTime();
+                        NumberUtility.getTime(start,end,"SQLITE retrive");
                         if(cursor.getCount()==0)
                             Toast.makeText(view.getContext(),getString(R.string.no_mobile_number_found),Toast.LENGTH_LONG).show();
                         else{

@@ -9,6 +9,12 @@ import android.util.Log;
 public class NumberUtility {
 
 
+    public NumberUtility(){
+        super();
+        int a=0;
+
+    }
+
     public static int getRandom() {
         return 0 + (int) (Math.random() * ((Integer.MAX_VALUE - 0) + 1));
     }

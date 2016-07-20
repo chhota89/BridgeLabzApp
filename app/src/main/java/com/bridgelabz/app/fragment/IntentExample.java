@@ -14,6 +14,7 @@ import com.bridgelabz.app.R;
 import com.bridgelabz.app.activity.ConstraintExample;
 import com.bridgelabz.app.activity.FormActivity;
 import com.bridgelabz.app.activity.HeterogenousRecycleView;
+import com.bridgelabz.app.activity.ImageLoadingLibrary;
 import com.bridgelabz.app.activity.MaterialDesign;
 import com.bridgelabz.app.activity.Retrofit;
 
@@ -86,6 +87,16 @@ public class IntentExample extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), Retrofit.class));
+            }
+        });
+
+
+        //Image Loading example
+        Button image=(Button)view.findViewById(R.id.image);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ImageLoadingLibrary.class));
             }
         });
 

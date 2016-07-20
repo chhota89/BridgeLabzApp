@@ -227,8 +227,10 @@ public class RealmActivity extends AppCompatActivity {
                         deleteValue.setEnabled(false);
                         RealmUser realmUser;
                         //Quary user by mobile number.
+                        long start=System.nanoTime();
                         realmUser = myRealm.where(RealmUser.class).equalTo("phoneNumber", phoneNumber.getText().toString()).findFirst();
-
+                        long end=System.nanoTime();
+                        NumberUtility.getTime(start,end,"Realm retrive");
                         if (realmUser == null)
                             Toast.makeText(RealmActivity.this, getString(R.string.no_mobile_number_found), Toast.LENGTH_LONG).show();
                         else {

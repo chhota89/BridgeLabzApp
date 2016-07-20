@@ -48,4 +48,5 @@
     <string name="title_home">Home</string>
     <string name="title_activity_android_material_design">AndroidMaterialDesign</string>
     <string name="action_search">Search</string>
+    <string name="title_activity_image_loading_library">ImageLoadingLibrary</string>
 </resources>
