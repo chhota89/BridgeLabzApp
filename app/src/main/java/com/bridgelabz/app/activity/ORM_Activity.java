@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.database.ORM_Helper;
 import com.bridgelabz.app.model.ORMUser;
+import com.bridgelabz.app.utility.NumberUtility;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
@@ -31,6 +32,7 @@ public class ORM_Activity extends OrmLiteBaseActivity<ORM_Helper> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orm);
+
 
         try {
             userDao = getHelper().getDao();
@@ -69,8 +71,10 @@ public class ORM_Activity extends OrmLiteBaseActivity<ORM_Helper> {
                                     //final Dao<ORMUser,Integer> userDao=helper.getDao();
 
                                     //Insert User
+                                    long start=System.currentTimeMillis();
                                     userDao.create(new ORMUser(name.getText().toString(), phoneNumber.getText().toString(), Integer.parseInt(age.getText().toString())));
-
+                                    long end=System.currentTimeMillis();
+                                    NumberUtility.getTime(start,end,"ORM Insert");
                                     /* //Quary for all user in the list.
                                     List<ORMUser> userList = userDao.queryForAll();*/
 
