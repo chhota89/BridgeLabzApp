@@ -16,11 +16,11 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.bridgelabz.app.R;
-import com.bridgelabz.app.activity.AndroidMaterialDesign;
 import com.bridgelabz.app.activity.CameraActivity;
 import com.bridgelabz.app.activity.FragmentDemo;
 import com.bridgelabz.app.activity.MusicPlayer;
 import com.bridgelabz.app.activity.VedioActivity;
+import com.bridgelabz.app.activity.VolleyFeedActivity;
 import com.bridgelabz.app.reciver.AlaramBroadcastReciver;
 
 /**
@@ -135,7 +135,7 @@ public class ButtonFragment extends Fragment {
         volleyFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(view.getContext(), AndroidMaterialDesign.class));
+                startActivity(new Intent(view.getContext(), VolleyFeedActivity.class));
             }
         });
         return view;
