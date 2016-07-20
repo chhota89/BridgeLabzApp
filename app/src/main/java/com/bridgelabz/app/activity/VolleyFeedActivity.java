@@ -40,14 +40,14 @@ public class VolleyFeedActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.list_feed);
 
-        feedItems = new ArrayList<FeedItem>();
+        feedItems = new ArrayList<>();
 
         listAdapter = new FeedListAdapter(this, feedItems);
         listView.setAdapter(listAdapter);
 
         // These two lines not needed,
         // just to get the look of facebook (changing background color & hiding the icon)
-        /*getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3b5998")));
+       /* getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3b5998")));
         getActionBar().setIcon(
                 new ColorDrawable(getResources().getColor(android.R.color.transparent)));*/
 

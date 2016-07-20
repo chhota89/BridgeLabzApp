@@ -12,37 +12,44 @@ import com.bridgelabz.app.model.UserInfo;
 
 import java.util.ArrayList;
 
-/**
- * Created by bridgeit on 9/6/16.
- */
-
 public class HeterogenousAdapter extends RecyclerView.Adapter<HeterogenousAdapter.MyViewHolder>{
 
-    ArrayList<Object> list;
-    private  final int  IMAGE_TYPE=0,USER_INFO_TYPE=1;
+     ArrayList<Object> list;
+      final int  IMAGE_TYPE=0,USER_INFO_TYPE=1;
     public  HeterogenousAdapter(ArrayList<Object> list){
         this.list=list;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public void removeItem(int position) {
+        list.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position,list.size());
+    }
 
-        public MyViewHolder(View itemView) {
+    public void addItem(String s) {
+        list.add(s);
+        notifyDataSetChanged();
+    }
+
+    class MyViewHolder extends RecyclerView.ViewHolder{
+
+        MyViewHolder(View itemView) {
             super(itemView);
         }
     }
 
-    public class UserInfoViewHolder extends  MyViewHolder{
-        public TextView firstName,LastName;
-        public UserInfoViewHolder(View itemView) {
+    private class UserInfoViewHolder extends  MyViewHolder{
+        TextView firstName,LastName;
+        UserInfoViewHolder(View itemView) {
             super(itemView);
             firstName=(TextView)itemView.findViewById(R.id.firstName);
             LastName=(TextView)itemView.findViewById(R.id.lastName);
         }
     }
 
-    public class ImageViewHolder extends  MyViewHolder{
-        public ImageView imageView;
-        public ImageViewHolder(View itemView) {
+    private class ImageViewHolder extends  MyViewHolder{
+        ImageView imageView;
+        ImageViewHolder(View itemView) {
             super(itemView);
             imageView=(ImageView)itemView.findViewById(R.id.imageView);
         }

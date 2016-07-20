@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-import com.bridgelabz.app.FeedImageView;
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.app.AppController;
 import com.bridgelabz.app.model.FeedItem;
@@ -65,7 +64,7 @@ public class FeedListAdapter extends BaseAdapter {
         TextView statusMsg= (TextView) convertView.findViewById(R.id.txtStatusMsg);
         TextView url = (TextView) convertView.findViewById(R.id.txtUrl);
         NetworkImageView profilePic = (NetworkImageView) convertView.findViewById(R.id.profilePic);
-        FeedImageView feedImageView = (FeedImageView) convertView.findViewById(R.id.feedImage1);
+        NetworkImageView feedImageView = (NetworkImageView) convertView.findViewById(R.id.feedImage1);
 
         FeedItem item= feedItems.get(position);
         name.setText(item.getName());
@@ -102,17 +101,7 @@ public class FeedListAdapter extends BaseAdapter {
         if (item.getImage() != null){
             feedImageView.setImageUrl(item.getImage(),imageLoader);
             feedImageView.setVisibility(View.VISIBLE);
-            feedImageView.setResponseObserver(new FeedImageView.ResponseObserver() {
-                @Override
-                public void onError() {
-
-                }
-
-                @Override
-                public void onSuccess() {
-
-                }
-            });
+            feedImageView.setImageUrl(item.getImage(),imageLoader);
         }else{
             feedImageView.setVisibility(View.GONE);
         }
