@@ -26,8 +26,14 @@ public class HeterogenousAdapter extends RecyclerView.Adapter<HeterogenousAdapte
         notifyItemRangeChanged(position,list.size());
     }
 
-    public void addItem(String s) {
-        list.add(s);
+    public void addItem(String s, int edit_position) {
+        Object obj=list.get(edit_position);
+        if(obj instanceof UserInfo){
+            String capital=((UserInfo) obj).getLastName();
+            list.remove(edit_position);
+            list.add(edit_position,new UserInfo(s,capital));
+        }
+
         notifyDataSetChanged();
     }
 

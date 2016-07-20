@@ -115,16 +115,16 @@ public class HeterogenousRecycleView extends AppCompatActivity {
                     }else {
                         paint.setColor(Color.parseColor("#d32f2f"));
                         RectF background = new RectF(
-                                (float)itemView.getLeft()+dX,
+                                (float)itemView.getRight()+dX,
                                 (float)itemView.getTop(),
                                 (float)itemView.getRight(),
                                 (float)itemView.getBottom());
                         c.drawRect(background,paint);
-                        icon =BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+                        icon =BitmapFactory.decodeResource(getResources(),R.drawable.action_search);
                         RectF icon_dest=new RectF(
                                 (float)itemView.getRight()-2*width,
                                 (float)itemView.getTop()+width,
-                                (float)itemView.getRight() -width,
+                                (float)itemView.getRight() - width,
                                 (float)itemView.getBottom() - width);
                         c.drawBitmap(icon,null,icon_dest,paint);
                     }
@@ -148,7 +148,7 @@ public class HeterogenousRecycleView extends AppCompatActivity {
         alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (add){
+                /*if (add){
                     add = false;
                     adapter.addItem(et_country.getText().toString());
                     dialog.dismiss();
@@ -156,7 +156,9 @@ public class HeterogenousRecycleView extends AppCompatActivity {
                     objectsArrayList.set(edit_position,et_country.getText().toString());
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();
-                }
+                }*/
+                adapter.addItem(et_country.getText().toString(),edit_position);
+                dialog.dismiss();
             }
         });
         et_country = (EditText) view.findViewById(R.id.etCountry);
