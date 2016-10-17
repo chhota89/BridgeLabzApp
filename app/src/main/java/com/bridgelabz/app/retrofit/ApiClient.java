@@ -15,7 +15,6 @@ public class ApiClient {
     public static final String BASE_URL = "http://192.168.0.110/";
     private static Retrofit retrofit = null;
 
-
     public static Retrofit getClient(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

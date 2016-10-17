@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bridgelabz.app.R;
-import com.bridgelabz.app.activity.ConstraintExample;
+import com.bridgelabz.app.activity.SpeechToText;
 import com.bridgelabz.app.activity.FormActivity;
 import com.bridgelabz.app.activity.HeterogenousRecycleView;
 import com.bridgelabz.app.activity.ImageLoadingLibrary;
@@ -73,11 +73,11 @@ public class IntentExample extends Fragment {
         });
 
         //Constraints layout example
-        Button constrainChecker=(Button)view.findViewById(R.id.constrainChecker);
-        constrainChecker.setOnClickListener(new View.OnClickListener() {
+        Button speechToText=(Button)view.findViewById(R.id.speechToText);
+        speechToText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ConstraintExample.class));
+                startActivity(new Intent(getContext(), SpeechToText.class));
             }
         });
 

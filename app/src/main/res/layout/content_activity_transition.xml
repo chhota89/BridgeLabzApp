@@ -17,7 +17,7 @@
         android:layout_height="250dp" />
 
     <com.kyleduo.switchbutton.SwitchButton
-        android:checked="true"
+        android:checked="false"
         android:id="@+id/sb_use_listener"
         style="@style/SwitchButtonStyleMD"
         android:layout_width="wrap_content"

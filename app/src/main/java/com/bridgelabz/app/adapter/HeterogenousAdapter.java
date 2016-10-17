@@ -53,7 +53,7 @@ public class HeterogenousAdapter extends RecyclerView.Adapter<HeterogenousAdapte
         }
     }
 
-    private class ImageViewHolder extends  MyViewHolder{
+    public class ImageViewHolder extends  MyViewHolder{
         ImageView imageView;
         ImageViewHolder(View itemView) {
             super(itemView);

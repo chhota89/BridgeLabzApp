@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bridgelabz.app">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -20,6 +20,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
+
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,7 +67,7 @@
             android:name=".activity.ORM_Activity"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name=".activity.ConstraintExample"
+            android:name=".activity.SpeechToText"
             android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activity.HeterogenousRecycleView"
@@ -76,7 +81,6 @@
             android:name=".activity.ActivityTransitionDemo"
             android:label="@string/title_activity_activity_transition"
             android:theme="@style/MyMaterialTheme" />
-
         <activity
             android:name=".activity.RealmActivity"
             android:label="@string/realm_activity"
@@ -100,11 +104,27 @@
         <activity
             android:name=".activity.ImageLoadingLibrary"
             android:label="@string/title_activity_image_loading_library"
-            android:theme="@style/MyMaterialTheme"></activity>
+            android:theme="@style/MyMaterialTheme" />
 
         <meta-data
             android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
             android:value="GlideModule" />
+
+        <activity
+            android:name=".activity.CustomActivity"
+            android:label="@string/title_activity_custom"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".activity.ExoPlayer"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <provider
+            android:name=".database.MyContentProvider"
+            android:authorities="com.bridgelabz.app.database.MyContentProvider"
+            android:exported="true"
+            android:multiprocess="true" />
+
+        <activity android:name=".activity.QuizActivity"></activity>
     </application>
 
 </manifest>

@@ -20,9 +20,12 @@ import android.widget.EditText;
 
 import com.bridgelabz.app.R;
 import com.bridgelabz.app.adapter.HeterogenousAdapter;
+import com.bridgelabz.app.adapter.ImageLoadingAdapter;
 import com.bridgelabz.app.model.UserInfo;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class HeterogenousRecycleView extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -62,10 +65,23 @@ public class HeterogenousRecycleView extends AppCompatActivity {
         initSwipe();
     }
     public void initSwipe(){
-        ItemTouchHelper.SimpleCallback simpleItemTouchCallback=new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        ItemTouchHelper.Callback simpleItemTouchCallback=new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+                int swipeFlags;
+                if(viewHolder instanceof HeterogenousAdapter.ImageViewHolder)
+                    swipeFlags = ItemTouchHelper.ANIMATION_TYPE_SWIPE_CANCEL ;
+                else
+                    swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END ;
+                return makeMovementFlags(dragFlags, swipeFlags);
+            }
+
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false;
+                Collections.swap(objectsArrayList, viewHolder.getAdapterPosition(), target.getAdapterPosition());
+                adapter.notifyItemMoved(viewHolder.getAdapterPosition(),target.getAdapterPosition());
+                return true;
             }
 
             @Override

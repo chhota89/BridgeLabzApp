@@ -23,18 +23,19 @@ public class FragmentDemo extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mFragmentManager=getSupportFragmentManager();
-
     }
 
     public void fragmentTwo(View view){
         mFragmentTransaction=mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.fragment,new FragmentTwo());
+        mFragmentTransaction.addToBackStack(null);
         mFragmentTransaction.commit();
     }
 
     public void fragmentOne(View view){
         mFragmentTransaction=mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.fragment,new FragmentOne());
+        mFragmentTransaction.addToBackStack("One");
        mFragmentTransaction.commit();
     }
 }

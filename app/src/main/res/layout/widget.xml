@@ -45,4 +45,45 @@
         android:id="@+id/dateButton"
         android:theme="@style/AppTheme.Button" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Take Screenshot"
+        android:id="@+id/capture"
+        android:theme="@style/AppTheme.Button" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Custom view"
+        android:id="@+id/customView"
+        android:theme="@style/AppTheme.Button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Exo player"
+        android:id="@+id/exoplayer"
+        android:theme="@style/AppTheme.Button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Quiz"
+        android:id="@+id/quiz"
+        android:theme="@style/AppTheme.Button" />
+
 </LinearLayout>

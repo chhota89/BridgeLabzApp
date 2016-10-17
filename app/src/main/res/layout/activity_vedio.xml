@@ -26,10 +26,23 @@
 
         </android.support.design.widget.AppBarLayout>
 
+        <TextView
+            android:text="Play online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:checked="false"
+            android:id="@+id/sb_use_listener"
+            style="@style/SwitchButtonStyleMD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:kswTintColor="#16A560"/>
+
         <VideoView
             android:id="@+id/videoView1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="477dp" />
 
 
     </LinearLayout>

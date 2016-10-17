@@ -22,13 +22,13 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "userDB";
 
     // Contacts table name
-    private static final String TABLE_USER = "user";
+    public  static final String TABLE_USER = "user";
 
     // Contacts Table Columns names
-    private static final String KEY_ID = "id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_PH_NO = "phone_number";
-    private static final String KEY_AGE = "age";
+    public static final String KEY_ID = "id";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_PH_NO = "phone_number";
+    public static final String KEY_AGE = "age";
 
 
     public DBHelper(Context context) {
