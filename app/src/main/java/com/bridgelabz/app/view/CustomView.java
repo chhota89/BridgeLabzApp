@@ -82,7 +82,7 @@ public class CustomView extends View {
         mBackgroundColorPaint.setAntiAlias(true);
         mBackgroundColorPaint.setStyle(Paint.Style.FILL);
         //mBackgroundColorPaint.setStrokeWidth(mStrokeWidth);
-        mBackgroundColorPaint.setColor(shapeColor);
+        mBackgroundColorPaint.setColor(getResources().getColor(R.color.white));
 
         drawPath = new Path();
 
@@ -103,7 +103,7 @@ public class CustomView extends View {
 
         pathBuilder=new StringBuilder();
 
-        bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.test_one);
+        bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.news_paper);
     }
 
     private void loadData(){
@@ -145,9 +145,10 @@ public class CustomView extends View {
 
         //canvas.drawText("A B C D e f 1 2 3",50,360,drawPaint);
 
-        /*Rect src = new Rect(0,0,bitmap.getWidth()-1, bitmap.getHeight()-1);
+       /* Rect src = new Rect(0,0,bitmap.getWidth()-1, bitmap.getHeight()-1);
         Rect dest = new Rect(0,0,canvas.getWidth(), canvas.getHeight());
         canvas.drawBitmap(bitmap, src,dest,null);*/
+        canvas.drawRect(0,0,canvas.getWidth(),canvas.getHeight(),mBackgroundColorPaint);
         canvas.drawPath(drawPath, drawPaint);
 
     }

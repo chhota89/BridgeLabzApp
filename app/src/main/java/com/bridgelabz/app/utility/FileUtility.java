@@ -27,7 +27,18 @@ public class FileUtility {
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         // Create imageDir
-        File mypath=new File(Environment.getExternalStorageDirectory(),"image123.jpg");
+        String imagePath=Environment.getExternalStorageDirectory()+"/"+System.currentTimeMillis()+".jpg";
+        File mypath=new File(imagePath);
+
+        if(!mypath.exists()) {
+            try {
+                mypath.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            mypath.mkdir();
+            mypath.mkdirs();
+        }
 
         Log.i("FileUtility", "saveToInternalStorage: "+mypath.getAbsolutePath());
 
@@ -35,7 +46,7 @@ public class FileUtility {
         try {
             fos = new FileOutputStream(mypath);
             // Use the compress method on the BitMap object to write image to the OutputStream
-            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            bitmapImage.compress(Bitmap.CompressFormat.JPEG, 100, fos);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
