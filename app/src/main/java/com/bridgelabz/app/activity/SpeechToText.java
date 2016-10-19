@@ -1,8 +1,12 @@
 package com.bridgelabz.app.activity;
 
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,6 +29,7 @@ import java.util.Locale;
 
 public class SpeechToText extends AppCompatActivity {
     private static final int REQ_CODE_SPEECH_INPUT = 245;
+    private static final String TAG = SpeechToText.class.getSimpleName();
     TextView textView;
 
     @Override
@@ -40,6 +45,43 @@ public class SpeechToText extends AppCompatActivity {
             }
         });
 
+        Button mediaFile=(Button)findViewById(R.id.mediaFile);
+        mediaFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMediaFile();
+            }
+        });
+
+    }
+
+    private void showMediaFile() {
+        ContentResolver cr = getContentResolver();
+
+        Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        String selection = MediaStore.Audio.Media.IS_MUSIC + "!= 0";
+        String sortOrder = MediaStore.Audio.Media.TITLE + " ASC";
+        Cursor cur = cr.query(uri, null, selection, null, sortOrder);
+        int count = 0;
+
+        if(cur != null)
+        {
+            count = cur.getCount();
+
+            if(count > 0)
+            {
+                while(cur.moveToNext())
+                {
+                    String data = cur.getString(cur.getColumnIndex(MediaStore.Audio.Media.DATA));
+                    // Add code to get more column here
+                    Log.i(TAG, "showMediaFile: "+data);
+                    // Save to your list here
+                }
+
+            }
+        }
+
+        cur.close();
     }
 
     /**

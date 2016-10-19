@@ -13,6 +13,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -102,7 +103,7 @@ public class CustomView extends View {
 
         pathBuilder=new StringBuilder();
 
-        bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.hand);
+        bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.test_one);
     }
 
     private void loadData(){
@@ -144,7 +145,9 @@ public class CustomView extends View {
 
         //canvas.drawText("A B C D e f 1 2 3",50,360,drawPaint);
 
-        //canvas.drawBitmap(bitmap, new Matrix(), new Paint());
+        /*Rect src = new Rect(0,0,bitmap.getWidth()-1, bitmap.getHeight()-1);
+        Rect dest = new Rect(0,0,canvas.getWidth(), canvas.getHeight());
+        canvas.drawBitmap(bitmap, src,dest,null);*/
         canvas.drawPath(drawPath, drawPaint);
 
     }

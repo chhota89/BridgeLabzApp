@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bridgelabz.app.R;
+import com.bridgelabz.app.utility.FileUtility;
 import com.bridgelabz.app.view.CustomView;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
@@ -43,17 +44,25 @@ public class CustomActivity extends AppCompatActivity {
                 customView.setDrawingCacheEnabled(true);
                 customView.buildDrawingCache();
                 Bitmap bitmap=customView.getDrawingCache();
+
+                String path= FileUtility.saveToInternalStorage(bitmap,getApplicationContext());
+
+                Bitmap abc=FileUtility.loadImageFromStorage(path);
+                Log.i("CustomActivity", "onClick: Path ... "+path);
+
                 //customView.setShapeColor(getResources().getColor(R.color.colorPrimaryDark));
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
                 Log.i("Custom activity", "onClick: "+bitmap.getWidth()+" "+bitmap.getHeight()+" "+bitmap.getDensity());
-                imageView.setImageBitmap(bitmap);
+                imageView.setImageBitmap(abc);
                /* imageView.setDrawingCacheEnabled(true);
                 imageView.buildDrawingCache();
+
+
                 bitmap=imageView.getDrawingCache();*/
 
-                detectText(bitmap);
+                detectText(abc);
 
                 /*customView.hideViewAnimation(getApplicationContext(), new CustomView.AnimationListner() {
                     @Override
